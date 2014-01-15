@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@raw/greyscreen"
+    android:orientation="vertical"
+    android:padding="12dp" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Day"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/ivUserPic"
+        android:layout_width="340dp"
+        android:layout_height="340dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerInside"
+        android:src="@raw/sample" />
+
+    <EditText
+        android:id="@+id/txtUserCaption"
+        android:layout_width="340dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="@string/enter_cap"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <requestFocus
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/bPost"
+        android:layout_width="340dip"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_height="40dip"
+        android:background="@raw/postbut" />
+
+</LinearLayout>

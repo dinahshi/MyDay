@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">myday</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="my_day">my day</string>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+    <string name="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum egestas leo. Morbi dictum augue orci, accumsan euismod massa.</string>
+    <string name="title_activity_new_day">NewDay</string>
+    <string name="enter_cap">Enter your caption here.</string>
+
+</resources>
