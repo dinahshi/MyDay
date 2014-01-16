@@ -10,14 +10,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class MainScreen extends Activity {
 	
-
-ImageButton newDay;
-Animation animMain;
-LinearLayout postFeed;
+	ImageButton newDay;
+	Animation animMain;
+	LinearLayout postFeed;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +24,11 @@ LinearLayout postFeed;
 		
 
 		postFeed = (LinearLayout) findViewById(R.id.llPostFeed);
-		
 		animMain = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
 		
 		//starts animation
 		postFeed.startAnimation(animMain);
 		addListenerOnButton();
-		
-
 	}
 	
 	public void addListenerOnButton() {
@@ -46,10 +41,10 @@ LinearLayout postFeed;
 			public void onClick(View arg0) {
 				//Intent openND = new Intent ("com.sehack1.myday.NEWDAY");
 				//startActivity(openND);
-				Intent openMain = new Intent ("com.sehack1.myday.NEWDAY");
-				startActivity(openMain);
-			}
- 
+				
+				Intent openNewDay = new Intent ("com.sehack1.myday.NEWDAY");
+				startActivity(openNewDay);
+			} 
 		});
 	}
 
