@@ -23,10 +23,14 @@
 
     <ImageButton
         android:id="@+id/bTakePic"
-        android:layout_width="340dip"
-        android:layout_height="40dip"
-        android:layout_marginLeft="8dp"
-        android:background="@raw/picbut" />
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:adjustViewBounds="true"
+        android:background="@raw/picbut"
+        android:scaleType="centerCrop"
+        android:gravity="center"
+        android:scaleX="1"
+        android:scaleY="1" />
     
     </LinearLayout>
 

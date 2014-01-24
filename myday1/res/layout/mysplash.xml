@@ -7,11 +7,11 @@
 
     <ImageView
         android:id="@+id/ivLogo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleX="0.60"
-        android:scaleY="0.60"
         android:layout_marginTop="170dp"
-        android:background="@raw/mydaylogo" />
+        android:src="@raw/mydaylogo"
+        android:scaleX="0.60"
+        android:scaleY="0.60" />
 
 </LinearLayout>

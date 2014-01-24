@@ -16,20 +16,19 @@
 
     <ImageView
         android:id="@+id/ivUserPic"
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="340dp"
-        android:layout_marginLeft="8dp"
+        android:gravity="center"
         android:layout_marginTop="30dp"
         android:scaleType="centerInside" />
 
     <EditText
         android:id="@+id/txtUserCaption"
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginLeft="8dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:background="@color/white"
-        android:ems="10"
         android:hint="@string/enter_cap"
         android:textColor="@color/black"
         android:textSize="12sp" />
@@ -40,10 +39,10 @@
 
     <ImageButton
         android:id="@+id/bPost"
-        android:layout_width="340dip"
+        android:layout_width="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="8dp"
-        android:layout_height="40dip"
+		android:layout_gravity="center_horizontal"
+        android:layout_height="45dip"
         android:background="@raw/postbut" />
 
 </LinearLayout>

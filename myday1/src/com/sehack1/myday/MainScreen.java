@@ -23,12 +23,13 @@ public class MainScreen extends Activity {
 		setContentView(R.layout.activity_main_screen);
 		
 
-		postFeed = (LinearLayout) findViewById(R.id.llPostFeed);
+		postFeed = (LinearLayout) findViewById(R.id.llPostView);
 		animMain = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
 		
 		//starts animation
 		postFeed.startAnimation(animMain);
 		addListenerOnButton();
+		
 	}
 	
 	public void addListenerOnButton() {
