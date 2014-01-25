@@ -7,7 +7,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,8 +19,8 @@ import android.widget.ImageView;
 
 public class ConfirmScreen extends Activity {
 	
-	public String filePath;
-	//String imagePath = "Default";
+	private Uri mImgUri;
+	
 	public String caption = "No caption chosen";
 	public String date = "No date yet";
 	public String imageInfo = "Default";
@@ -27,7 +29,7 @@ public class ConfirmScreen extends Activity {
 	ImageButton post;
 	
 	public String createMessage() {
-		return filePath + "!#!#!#!#" + caption + "!#!#!#!#" + date;
+		return mImgUri + "!#!#!#!#" + caption + "!#!#!#!#" + date;
 	}
 	public void saveMessage(View view) {
 		String filename = "textfile.txt";
@@ -55,9 +57,12 @@ public class ConfirmScreen extends Activity {
 		
 		// Paint the image 
 		Intent i = getIntent();
-		filePath = i.getStringExtra(NewDayScreen.MESSAGE);		 
+		mImgUri = Uri.parse(i.getStringExtra(NewDayScreen.MESSAGE));		 
         ImageView imageView = (ImageView) findViewById(R.id.ivUserPic);
-        imageView.setImageBitmap(BitmapFactory.decodeFile(filePath));
+        try {
+        	imageView.setImageBitmap(MediaStore.Images.Media.getBitmap(this.getContentResolver(), mImgUri));
+        }
+        catch (Exception E){}
         
 		addListenerOnButton();
 	}
