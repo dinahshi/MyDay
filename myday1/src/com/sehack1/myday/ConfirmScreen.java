@@ -7,13 +7,14 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,71 +24,114 @@ import android.widget.ImageView;
 
 public class ConfirmScreen extends Activity {
 	
-    private static final String TAG = "ConfirmScreen";
-    private static final int SIDE_LENGTH = 350;
+	private static final String TAG = "ConfirmScreen";
 
 	private ImageView imageView;
-	
+	public String filePath;
+	public Uri mImgUri;
 	public String caption = "No caption chosen";
 	public String date = "No date yet";
 	public String imageInfo = "Default";
-	public String filePath;
-	
-	EditText captionEditText;
-	ImageButton post;
-	
+
+	private EditText captionEditText;
+	private ImageButton post;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.confirm);
-		Log.d(TAG, "confirm created");
 		
-		// Compress and paint image
+		// Paint the image 
 		Intent i = getIntent();
-		filePath = i.getStringExtra(NewDayScreen.MESSAGE);		 
-        Log.d(TAG, "Filepath retrieved: " + filePath);
-		imageView.setImageBitmap(decodeSampledBitmapFromResource(filePath, SIDE_LENGTH, SIDE_LENGTH));
+		mImgUri = Uri.parse(i.getStringExtra(NewDayScreen.MESSAGE));	
+		filePath = mImgUri.getPath();
+		System.out.println("filepath = " + filePath);
+        imageView = (ImageView) findViewById(R.id.ivUserPic);
         
+		// async bitmap loading
+		new AsyncTask <Void, Void, Bitmap>(){
+		    @Override
+		    protected Bitmap doInBackground(Void... params) {
+		        return decodeSampledBitmapFromFilepath(filePath, 450);
+		    }
+
+		    @Override
+		    protected void onPostExecute(Bitmap bitmap) {
+		    	imageView.setImageBitmap(bitmap);
+		    }
+		}.execute();
+
 		addListenerOnButton();
 	}
-	
-	public static Bitmap decodeSampledBitmapFromResource(String filePath, int reqWidth, int reqHeight) {
+		
+	public static Bitmap decodeSampledBitmapFromFilepath(String filePath, int reqWidth) {
 
 	    // First decode with inJustDecodeBounds=true to check dimensions
 	    final BitmapFactory.Options options = new BitmapFactory.Options();
 	    options.inJustDecodeBounds = true;
 		BitmapFactory.decodeFile(filePath, options);
-
+	
 	    // Calculate inSampleSize
-	    options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
-
+	    options.inSampleSize = calculateInSampleSize(options, reqWidth);
+	
 	    // Decode bitmap with inSampleSize set
 	    options.inJustDecodeBounds = false;
 	    return BitmapFactory.decodeFile(filePath, options);
 	}
 	
-	public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+	public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth) {
 		// Raw height and width of image
-		final int height = options.outHeight;
 		final int width = options.outWidth;
 		int inSampleSize = 1;
-
-		if (height > reqHeight || width > reqWidth) {
-
-			final int halfHeight = height / 2;
+	
+		if (width > reqWidth) {
+	
 			final int halfWidth = width / 2;
-
+	
 			// Calculate the largest inSampleSize value that is a power of 2 and keeps both
 			// height and width larger than the requested height and width.
-			while ((halfHeight / inSampleSize) > reqHeight && (halfWidth / inSampleSize) > reqWidth) {
+			while ((halfWidth / inSampleSize) > reqWidth) {
 				inSampleSize *= 2;
 			}
 		}
-	
-		Log.d(TAG, "sample size: " + inSampleSize);
 		return inSampleSize;
 	}
+
+	public void addListenerOnButton() {
+		 
+		post = (ImageButton) findViewById(R.id.bPost);
+		captionEditText = (EditText) findViewById(R.id.txtUserCaption);
+		
+		post.setOnClickListener(new OnClickListener() {
+ 
+			@Override
+			public void onClick(View arg0) {
+				caption = captionEditText.getText().toString();
+				Log.d("Check", caption);
+				saveMessage(arg0);
+				Intent openMain = new Intent ("com.sehack1.myday.MAINSCREEN");
+				startActivity(openMain);
+			}
+ 
+		});
+
+	}
+	
+	// send this into parse @Luisa
+	public byte[] convertImageToByte(Uri uri){
+        byte[] data = null;
+        try {
+            ContentResolver cr = getBaseContext().getContentResolver();
+            InputStream inputStream = cr.openInputStream(uri);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+            data = baos.toByteArray();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
 	
 	public String createMessage() {
 		return filePath + "!#!#!#!#" + caption + "!#!#!#!#" + date;
@@ -110,25 +154,4 @@ public class ConfirmScreen extends Activity {
 			e.printStackTrace();
 		}
 	}
-	
-	public void addListenerOnButton() {
-		 
-		post = (ImageButton) findViewById(R.id.bPost);
-		captionEditText = (EditText) findViewById(R.id.txtUserCaption);
-		
-		post.setOnClickListener(new OnClickListener() {
- 
-			@Override
-			public void onClick(View arg0) {
-				caption = captionEditText.getText().toString();
-				Log.d("Check", caption);
-				saveMessage(arg0);
-				Intent openMain = new Intent ("com.sehack1.myday.MAINSCREEN");
-				startActivity(openMain);
-			}
- 
-		});
-
-	}
-	
 }
