@@ -41,7 +41,7 @@ LayoutInflater postInflater;
 		// TODO Auto-generated method stub
 		return position;
 	}
-
+	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Create the cell (View) and populate it with an element
