@@ -31,20 +31,21 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b000d;
-        public static final int bNewDay=0x7f0b0004;
-        public static final int bPost=0x7f0b0009;
+        public static final int action_settings=0x7f0b000e;
+        public static final int bChoosePic=0x7f0b000d;
+        public static final int bNewDay=0x7f0b0006;
+        public static final int bPost=0x7f0b000a;
         public static final int bTakePic=0x7f0b000c;
-        public static final int imageView1=0x7f0b0002;
-        public static final int ivLogo=0x7f0b000a;
-        public static final int ivUserPic=0x7f0b0007;
+        public static final int ivLogo=0x7f0b0001;
+        public static final int ivPost=0x7f0b0004;
+        public static final int ivUserPic=0x7f0b0008;
         public static final int layout2=0x7f0b000b;
-        public static final int linearLayout1=0x7f0b0005;
-        public static final int llPostFeed=0x7f0b0000;
-        public static final int textView1=0x7f0b0006;
-        public static final int tvCaption=0x7f0b0003;
-        public static final int tvPostTitle=0x7f0b0001;
-        public static final int txtUserCaption=0x7f0b0008;
+        public static final int llPostArray=0x7f0b0002;
+        public static final int llPostView=0x7f0b0000;
+        public static final int textView1=0x7f0b0007;
+        public static final int tvCaption=0x7f0b0005;
+        public static final int tvPostTitle=0x7f0b0003;
+        public static final int txtUserCaption=0x7f0b0009;
     }
     public static final class layout {
         public static final int activity_main_screen=0x7f030000;
@@ -57,16 +58,19 @@ public final class R {
         public static final int new_day=0x7f0a0001;
     }
     public static final class raw {
-        public static final int greyscreen=0x7f050000;
-        public static final int mainscreen=0x7f050001;
-        public static final int mydaylogo=0x7f050002;
-        public static final int mydaysplash=0x7f050003;
-        public static final int mydaysplash1=0x7f050004;
-        public static final int newdaybut=0x7f050005;
-        public static final int picbut=0x7f050006;
-        public static final int postbut=0x7f050007;
-        public static final int postbutp=0x7f050008;
-        public static final int sample=0x7f050009;
+        public static final int default_pic=0x7f050000;
+        public static final int defaultpic=0x7f050001;
+        public static final int greyscreen=0x7f050002;
+        public static final int mainscreen=0x7f050003;
+        public static final int mydayiconres=0x7f050004;
+        public static final int mydaylogo=0x7f050005;
+        public static final int mydaysplash=0x7f050006;
+        public static final int mydaysplash1=0x7f050007;
+        public static final int newdaybut=0x7f050008;
+        public static final int picbut=0x7f050009;
+        public static final int postbut=0x7f05000a;
+        public static final int postbutp=0x7f05000b;
+        public static final int sample=0x7f05000c;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;

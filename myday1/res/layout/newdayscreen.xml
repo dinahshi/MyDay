@@ -32,6 +32,17 @@
         android:scaleX="1"
         android:scaleY="1" />
     
+    <ImageButton
+        android:id="@+id/bChoosePic"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:adjustViewBounds="true"
+        android:background="@raw/picbut"
+        android:scaleType="centerCrop"
+        android:gravity="center"
+        android:scaleX="1"
+        android:scaleY="1" />
+    
     </LinearLayout>
 
 
