@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -6,71 +6,37 @@
     tools:context=".MainScreen"
     android:background="@raw/mainscreen" >
 
-
-	    <LinearLayout
-	        android:id="@+id/llPostView"
-	        android:layout_centerHorizontal="true"
-	        android:layout_below="@+id/ivLogo"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_marginTop="15dp"
-	        android:orientation="horizontal"
-	      	 >
-		    <LinearLayout
-		        android:id="@+id/llPostArray"
-		        android:orientation="vertical"
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		        android:layout_marginLeft="20dp"
-		        android:layout_marginRight="20dp"
-		         >
-		        
-			    <TextView
-			     android:id="@+id/tvPostTitle"
-			     android:layout_width="wrap_content"
-			     android:layout_height="wrap_content"
-			     android:text="Day One:"
-			     android:textColor="@color/black"
-			     android:textSize="22sp" />
-			
-			    <ImageView
-			        android:id="@+id/ivPost"
-			        android:layout_width="340dp"
-			        android:layout_height="340dp"
-			        android:layout_marginTop="5dp"
-			        android:layout_weight="4.63"
-			        android:scaleType="centerInside"
-			        android:src="@raw/default_pic" />
-			
-			    <TextView
-			        android:id="@+id/tvCaption"
-			        android:layout_width="wrap_content"
-			        android:layout_height="wrap_content"
-			        android:layout_marginTop="10dp"
-			        android:text="@string/caption"
-			        android:textColor="@color/black"
-			        android:textSize="12sp" />
-		    </LinearLayout>
-	    </LinearLayout>
-
     <ImageView
         android:id="@+id/ivLogo"
         android:layout_marginTop="5dp"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:scaleX="1.2"
         android:scaleY="1.2"
 
         android:src="@raw/mydaylogo" />
+    
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_marginTop="15dp"
+        android:scrollbars="none"
+        
+     />
+    
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
 
-    <ImageButton
-        android:id="@+id/bNewDay"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_below="@+id/llPostView"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="15dp"
-        android:background="@raw/newdaybut" />
+	       	<ImageButton
+	        android:id="@+id/bNewDay"
+	        android:layout_alignParentBottom="true"
+	        android:layout_width="wrap_content"
+	        android:layout_height="50dp"
+	        android:layout_margin="10dp"
+	        android:background="@raw/newdaybut" />
+	       	
+	    </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>

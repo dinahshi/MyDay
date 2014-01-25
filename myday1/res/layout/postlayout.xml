@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+		    
+	<RelativeLayout
+	    	 android:id="@+id/llPost"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:paddingTop="5dp"
+	         android:paddingLeft="15dp"
+	         android:paddingRight="15dp"
+	         android:paddingBottom="5dp"
+		     android:orientation="vertical" >
+    
+    <TextView
+		     android:id="@+id/tvPostTitle"
+		     android:layout_width="wrap_content"
+		     android:layout_height="wrap_content"
+		     android:text="Day One:"
+		     android:textColor="@color/black"
+		     android:textSize="22sp" />
+		
+		    <ImageView
+		        android:id="@+id/ivPost"
+		        android:layout_width="match_parent"
+		        android:layout_height="350dp"
+		        android:layout_marginTop="5dp"
+		        android:layout_below="@id/tvPostTitle"
+		        android:scaleType="centerInside"
+		        android:src="@raw/default_pic" />
+		
+		    <TextView
+		        android:id="@+id/tvCaption"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="10dp"
+		        android:layout_below="@id/ivPost"
+		        android:text="@string/caption"
+		        android:textColor="@color/black"
+		        android:textSize="12sp" />
+
+
+		    </RelativeLayout>
+		    
+		    <ImageView
+		        android:id="@+id/ivDivider"
+		        android:layout_width="match_parent"
+		        android:layout_height="20dp"
+		        android:layout_below="@id/llPost"
+		        android:layout_marginTop="5dp"
+		        android:scaleType="centerInside"
+		        android:src="@raw/bottomdiv" />
+
+</RelativeLayout>
+
+
